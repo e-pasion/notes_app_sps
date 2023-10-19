@@ -1,9 +1,7 @@
 import User from '../models/user.js';
 
 export const getUsers = async (req, res)=>{
-    const users = await User.find(
-        {user:req.user.id}
-    ).populate('user');
+    const users = await User.find();
     res.json(users)
 }
 
@@ -27,7 +25,7 @@ export const updateUser = async (req, res)=>{
         new : true
     });
     if (!user)return res.status(404).json({ message: 'User not found' });
-    res.sendStatus(201);
+    res.sendStatus(204);
 }
 
 export const deleteUser = async (req, res)=>{

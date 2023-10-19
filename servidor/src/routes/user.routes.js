@@ -1,13 +1,11 @@
 import {Router} from 'express'
-
-import { requiredAuth } from "../middlewares/tokenValidator.js";
 import { createUser, deleteUser, getUser, getUsers, updateUser } from "../controllers/user.controller.js";
 const router = Router();
 
-router.get('/users',getUsers)
-router.get('/users/:id',getUser)
-router.post('/users',createUser)
-router.put('/users/:id',updateUser)
-router.delete('/users/:id',deleteUser)
+router.get('/',getUsers)
+router.get('/:id',getUser)
+router.post('/',createUser)
+router.put('/:id',updateUser)
+router.delete('/:id',deleteUser)
 
 export default router;
