@@ -8,6 +8,8 @@ import noteRoutes from './routes/note.routes.js';
 
 
 const APP= express(); 
+const PORT= 3000; 
+const HOST = '0.0.0.0'; 
 const URL='/api_notes_app/'
 
 
@@ -22,7 +24,7 @@ APP.use(`${URL}users`,userRoutes)
 APP.use(`${URL}notes`,noteRoutes)
 
 
-APP.listen('0.0.0.0',()=>{
-    console.log('server started'); 
+APP.listen(PORT,HOST,()=>{
+    console.log(`http://localhost:${PORT}`); 
     connectDB();
 }) 
