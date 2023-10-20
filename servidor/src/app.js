@@ -15,7 +15,7 @@ const URL='/api_notes_app/'
 
 APP.use(express.json())
 APP.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://main--heartfelt-shortbread-5effc2.netlify.app/",
     credentials: true
 }))
 APP.use(morgan('dev'));
