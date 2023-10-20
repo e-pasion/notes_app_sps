@@ -14,7 +14,7 @@ const URL='/api_notes_app/'
 
 
 APP.use(express.json())
-app.use(cors({
+APP.use(cors({
     origin: '*',
     credentials: true
   }));
