@@ -12,7 +12,7 @@ export const getNote = async (req, res)=>{
 }
 
 export const createNote = async (req, res) => {
-    const {title, description, date, user }= req.body;
+    const {title, content, date, user }= req.body;
     console.log(user);
     const newNote = new Note({
         title,
