@@ -15,7 +15,7 @@ const URL='/api_notes_app/'
 
 APP.use(express.json())
 APP.use(cors({
-    origin: "https://main--heartfelt-shortbread-5effc2.netlify.app/"
+    origin: "https://main--heartfelt-shortbread-5effc2.netlify.app"
 }))
 APP.use(morgan('dev'));
 APP.options('*', cors())
