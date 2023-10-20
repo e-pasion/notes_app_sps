@@ -14,10 +14,10 @@ const URL='/api_notes_app/'
 
 
 APP.use(express.json())
-APP.use(cors({
-    origin: "https://main--heartfelt-shortbread-5effc2.netlify.app/",
+app.use(cors({
+    origin: '*',
     credentials: true
-}))
+  }));
 APP.use(morgan('dev'));
 
 APP.use(`${URL}users`,userRoutes)
