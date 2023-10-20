@@ -16,7 +16,7 @@ export const createNote = async (req, res) => {
     console.log(user);
     const newNote = new Note({
         title,
-        description,
+        content,
         date,
         user
     });
