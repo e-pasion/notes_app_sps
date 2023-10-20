@@ -14,10 +14,7 @@ const URL='/api_notes_app/'
 
 
 APP.use(express.json())
-APP.use(cors({
-    origin: '*',
-    credentials: true
-  }));
+APP.use(cors());
 APP.use(morgan('dev'));
 
 APP.use(`${URL}users`,userRoutes)
