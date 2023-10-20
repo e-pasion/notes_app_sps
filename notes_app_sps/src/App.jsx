@@ -16,9 +16,9 @@ function App() {
       <BrowserRouter>       
         <Navbar/>
         <Routes>
-              <Route path='/' element={<NotePage/>}></Route>
-              <Route path='/notes' element={<NoteFormPage/>}></Route>
-              <Route path='/users' element={<UserPage/>}></Route>
+              <Route path='/' element={<NotePage/>}/>
+              <Route path="/notes/:id?" element={<NoteFormPage/>} />
+              <Route path='/users' element={<UserPage/>}/>
         </Routes>
         </BrowserRouter>
       </NoteProvider>

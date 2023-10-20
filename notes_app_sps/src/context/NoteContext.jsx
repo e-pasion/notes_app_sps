@@ -13,7 +13,6 @@ export const useNotes = () => {
 // eslint-disable-next-line react/prop-types
 export function NoteProvider({children}){
     const [notes,setNotes] = useState([]);
-    const [actualNote,setActualNote] = useState({});
 
     const getNotes = async () => {
         try {
@@ -26,8 +25,8 @@ export function NoteProvider({children}){
     }
 
     const getNote = async(id) =>{
-        const res= await getNoteRequest(id);
-        setActualNote(res.data);
+        const res = await getNoteRequest(id);
+        return res.data;
     }
 
     const updateNote = async(note)=>{
@@ -40,12 +39,12 @@ export function NoteProvider({children}){
 
     const deleteNote = async(id)=>{
         await deleteNoteRequest(id);
+        await getNotes();
     }
 
     return(
         <NoteContext.Provider value={{
             notes,
-            actualNote,
             createNote,
             getNotes,
             getNote,

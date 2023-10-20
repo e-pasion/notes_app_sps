@@ -4,7 +4,8 @@ import { useNotes } from "../context/NoteContext";
 
 function NotePage() {
 
-    const { getNotes,notes } = useNotes();
+    const { getNotes, deleteNote, notes } = useNotes();
+
 
     useEffect(()=>{
         getNotes();
@@ -14,7 +15,7 @@ function NotePage() {
     <div className="flex flex-wrap justify-evenly px-10 py-6">{
         notes.map((note)=>{
             return(
-                <Card key={note._id} note={note}/>
+                <Card key={note._id} note={note} onDelete={deleteNote} />
             )
         })
         }</div>

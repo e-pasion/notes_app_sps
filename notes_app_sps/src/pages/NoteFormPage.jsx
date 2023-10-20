@@ -1,22 +1,38 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useUsers } from "../context/UserContext";
 import { useForm } from "react-hook-form";
 import { useNotes } from "../context/NoteContext";
+import { useParams,useNavigate  } from "react-router-dom";
 
 function NoteFormPage() {
     const { register,handleSubmit,reset } = useForm();
     const { getUsers,users } = useUsers();
-    const { createNote } = useNotes();
+    const { createNote,getNote,updateNote } = useNotes();
+    const { id } = useParams();
+    const navigate= useNavigate();
 
     const onSubmit= handleSubmit(async(data)=>{
-        console.log(data);
-        createNote(data);
+        if(id) {
+            await updateNote({'_id':id,...data})
+            navigate('/')
+        }
+        else createNote(data);
         reset();
       })
-    
+
+    const handleGetNote= async()=>{
+        const data=await getNote(id);
+        reset({
+            'user':data.user._id,
+            'title':data.title,
+            'content':data.content,
+            'date':data.date.substring(0, 10)
+        })
+    }
 
     useEffect(()=>{
         getUsers();
+        handleGetNote();
     },[])
 
   return (
